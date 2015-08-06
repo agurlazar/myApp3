@@ -36,7 +36,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        console.log("Start db");
+        alert("Start again");
 
          var db = window.sqlitePlugin.openDatabase({name: "my.db", androidDatabaseImplementation: 2});
 
@@ -48,9 +48,9 @@ var app = {
       console.log("insertId: " + res.insertId + " -- probably 1");
       alert("rowsAffected: " + res.rowsAffected + " -- should be 1");
 
-      tx.executeSql("select count(id) as cnt from test_table;", [], function(tx, res) {
+      tx.executeSql("select data, data_num as cnt from test_table;", [], function(tx, res) {
         alert("res.rows.length: " + res.rows.length + " -- should be 1");
-        alert("res.rows.item(0).cnt: " + res.rows.item(0).cnt + " -- should be 1");
+        alert("res.rows.item(0).cnt: " + res.rows.item(1) + " -- should be 1");
       });
 
     }, function(e) {
