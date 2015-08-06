@@ -52,6 +52,7 @@ var app = {
         alert("res.rows.length: " + res.rows.length + " -- should be 1");
         alert("res.rows.item(0).data: " + res.rows.item(0).data + " -- should be test");
           alert("res.rows.item(0).data_num: " + res.rows.item(0).data + " -- should be 100");
+          lert("res.rows.item(0).data_num: " + res.rows.item(1).data + " -- should be 100");
       });
 
     }, function(e) {
