@@ -36,7 +36,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        alert("test item 3");
+        alert("test 3 item ");
 
          var db = window.sqlitePlugin.openDatabase({name: "my.db", androidDatabaseImplementation: 2});
 
@@ -44,14 +44,15 @@ var app = {
     tx.executeSql('DROP TABLE IF EXISTS test_table');
     tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
 
-    tx.executeSql("INSERT INTO test_table (data, data_num) VALUES (?,?)", ["test", "100"], function(tx, res) {
+    tx.executeSql("INSERT INTO test_table (data, data_num,trythis) VALUES (?,?,?)", ["test", "100", "hmm"], function(tx, res) {
       console.log("insertId: " + res.insertId + " -- probably 1");
       alert("rowsAffected: " + res.rowsAffected + " -- should be 1");
 
       tx.executeSql("select data, data_num as cnt from test_table;", [], function(tx, res) {
         alert("res.rows.length: " + res.rows.length + " -- should be 1");
         alert("res.rows.item(0).data: " + res.rows.item(0).data + " -- should be test");
-          alert(res.rows.item('data_num').data );
+          alert("res.rows.item(1).data: " + res.rows.item(1).data + " -- should be 100");
+         alert("res.rows.item(2).data: " + res.rows.item(2).data + " -- should be hmm");
 
       });
 
