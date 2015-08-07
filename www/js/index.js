@@ -42,9 +42,9 @@ var app = {
 
   db.transaction(function(tx) {
     tx.executeSql('DROP TABLE IF EXISTS test_table');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer, trythis text)');
 
-    tx.executeSql("INSERT INTO test_table (data, data_num,trythis) VALUES (?,?,?)", ["test", "100", "hmm"], function(tx, res) {
+    tx.executeSql("INSERT INTO test_table (data, data_num,trythis) VALUES (?,?,?)", ["test", 100, "hmm"], function(tx, res) {
       console.log("insertId: " + res.insertId + " -- probably 1");
       alert("rowsAffected: " + res.rowsAffected + " -- should be 1");
 
