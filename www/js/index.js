@@ -51,7 +51,7 @@ var app = {
       tx.executeSql("select data, data_num as cnt from test_table;", [], function(tx, res) {
         alert("res.rows.length: " + res.rows.length + " -- should be 1");
         alert("res.rows.item(0).data: " + res.rows.item(0).data + " -- should be test");
-          alert("res.rows.item(1).data: " + res.rows.item(1).data + " -- should be 100");
+          alert("res.rows.item(1).data: " + res.rows.item(0).data_num + " -- should be 100");
          alert("res.rows.item(2).data: " + res.rows.item(2).data + " -- should be hmm");
 
       });
