@@ -36,7 +36,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        alert("test name item ");
+        alert("test name item sql");
         var dbSize = 5 * 1024 * 1024; // 5MB
         html5rocks.webdb.db = openDatabase("Todo", "1", "Todo manager", dbSize);
 
