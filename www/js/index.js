@@ -39,8 +39,8 @@ var app = {
         alert("test name item sql");
         var dbSize = 5 * 1024 * 1024; // 5MB
         html5rocks.webdb.db = openDatabase("Todo", "1", "Todo manager", dbSize);
-
-        html5rocks.webdb.db.transaction(function(tx) {
+        var db = html5rocks.webdb.db;
+        db.transaction(function(tx) {
     tx.executeSql('DROP TABLE IF EXISTS test_table');
     tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
 
