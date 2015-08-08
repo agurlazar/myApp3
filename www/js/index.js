@@ -70,8 +70,8 @@ var app = {
       tx.executeSql("select datas, data_num as cnt, trythis from test_table;", [], function(tx, res) {
         alert("res.rows.length: " + res.rows.length + " -- should be 1");
         alert("res.rows.item(0).data: " + res.rows.item(0).datas + " -- should be test");
-          alert("res.rows.item(1).data: " + res.rows.item(0).cnt  + " -- should be 100");
-         alert("res.rows.item(2).data: " + res.rows.trythis + " -- should be hmm");
+          alert("res.rows.item(0).cnt: " + res.rows.item(0).cnt  + " -- should be 100");
+         alert("res.rows.item(0).trythis " + res.rows.item(0).trythis + " -- should be hmm");
 
       });
 
